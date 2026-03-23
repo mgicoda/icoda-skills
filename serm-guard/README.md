@@ -38,9 +38,6 @@ Each niche gets a tailored query matrix and niche-specific recommendations.
 Run a SERM audit for stripe.com
 ```
 ```
-Аудит репутации для Binance — что пишут в сети?
-```
-```
 Is notion.so legit? Check reviews and complaints.
 ```
 ```
@@ -53,9 +50,6 @@ Activates for requests about:
 - SERM audit, ORM check, reputation analysis, reputation score
 - "is [brand] legit", "[brand] reviews", "[brand] scam check"
 - brand sentiment analysis, online complaints, what do people say about [brand]
-- **Russian:** аудит репутации, SERM анализ, репутация бренда, что пишут о бренде, проверить репутацию
-
-Works in **English and Russian** (auto-detected).
 
 ## File structure
 

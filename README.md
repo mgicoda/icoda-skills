@@ -38,9 +38,6 @@ A collection of open-source **Claude skills** (agent skills) built by [icoda](ht
 Run a SERM audit for stripe.com
 ```
 ```
-Аудит репутации для Binance — что пишут в сети?
-```
-```
 Is notion.so legit? Check reviews and complaints.
 ```
 ```
@@ -53,10 +50,6 @@ This skill activates for requests about:
 - SERM audit, ORM check, reputation analysis, reputation score
 - "is [brand] legit", "[brand] reviews", "[brand] scam check"
 - brand sentiment analysis, online complaints, what do people say about [brand]
-- **Russian:** аудит репутации, SERM анализ, репутация бренда, что пишут о бренде
-
-Works in English and Russian.
-
 ---
 
 ## aeo-audit — AEO & AI Visibility Audit
@@ -91,9 +84,6 @@ Works in English and Russian.
 Run a full AEO audit for stripe.com
 ```
 ```
-Проверь сайт icoda.io на AI-видимость и сделай PDF-отчёт
-```
-```
 Check if GPTBot and ClaudeBot are blocked in robots.txt for notion.so
 ```
 ```
@@ -109,8 +99,6 @@ This agent skill activates for requests about:
 - Schema markup / structured data for AI systems
 - llms.txt presence
 - Comparison of sites for AI search readiness
-
-Works in English and Russian.
 
 ---
 
