@@ -7,6 +7,55 @@ A collection of open-source **Claude skills** (agent skills) built by [icoda](ht
 | Skill | Description | Install |
 |-------|-------------|---------|
 | [aeo-audit](./aeo-audit) | AEO & AI Visibility Audit — scores your site 0–100 for AI discoverability | [↓ Download .skill](./aeo-audit/aeo-audit.skill) |
+| [serm-guard](./serm-guard) | SERM & Online Reputation Audit — scores brand reputation 0–100 across search, reviews, and AI perception | [↓ SKILL.md](./serm-guard/SKILL.md) |
+
+---
+
+## serm-guard — SERM & Online Reputation Audit
+
+> A **Claude skill** that performs a comprehensive brand reputation audit across search engines, review platforms, forums, and social media — and generates a scored, visual HTML report in one conversation.
+
+### What it audits
+
+| Dimension | Weight | What's analyzed |
+|-----------|--------|-----------------|
+| 🔍 Search Sentiment | 35% | Sentiment of top-10 results per query, weighted by position and source authority |
+| 🤖 LLM Sentiment | 30% | How AI systems (ChatGPT, Claude, Perplexity) perceive the brand — trust signals, red flags, E-E-A-T |
+| 🎯 SERP Control | 20% | % of top-10 results the brand owns, earns, or loses to hostile sources |
+| 📊 Platform Presence | 15% | Coverage across Trustpilot, Google Reviews, Reddit, LinkedIn, and niche platforms |
+
+### Output
+
+- **Overall score 0–100** with color-coded breakdown (green / yellow / orange / red)
+- **Sentiment heatmap** across all search queries and positions
+- **Top 10 prioritized recommendations** grouped by timeframe (Quick Wins / Medium-term / Strategic)
+- **Inline HTML report** — ready to share or save as PDF
+- **Comparison mode** — side-by-side analysis for 2 brands
+
+### Usage examples
+
+```
+Run a SERM audit for stripe.com
+```
+```
+Аудит репутации для Binance — что пишут в сети?
+```
+```
+Is notion.so legit? Check reviews and complaints.
+```
+```
+Compare HubSpot vs Salesforce reputation in search
+```
+
+### Trigger keywords
+
+This skill activates for requests about:
+- SERM audit, ORM check, reputation analysis, reputation score
+- "is [brand] legit", "[brand] reviews", "[brand] scam check"
+- brand sentiment analysis, online complaints, what do people say about [brand]
+- **Russian:** аудит репутации, SERM анализ, репутация бренда, что пишут о бренде
+
+Works in English and Russian.
 
 ---
 

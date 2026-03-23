@@ -1,0 +1,361 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.serm-wrap{padding:24px 0;max-width:720px;font-family:var(--font-sans);color:var(--color-text-primary)}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.serm-hdr{background:#3C50E0;border-radius:var(--border-radius-lg);padding:28px 32px;color:#fff;display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.serm-hdr-left h1{font-size:22px;font-weight:600;color:#fff;line-height:1.2}
+.serm-hdr-left p{font-size:13px;opacity:.78;margin-top:4px}
+.serm-score-badge{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.14);border:3px solid rgba(255,255,255,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+.serm-score-badge .num{font-size:30px;font-weight:600;color:#fff;line-height:1}
+.serm-score-badge .lbl{font-size:10px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.5px}
+
+/* ── Section card ────────────────────────────────────────────── */
+.serm-section{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:20px 24px;margin-bottom:16px;border:1px solid var(--color-border-tertiary)}
+.serm-section h2{font-size:15px;font-weight:600;margin-bottom:16px;color:var(--color-text-primary)}
+
+/* ── Score overview bars ─────────────────────────────────────── */
+.serm-cat{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.serm-cat-label{font-size:13px;width:175px;flex-shrink:0;color:var(--color-text-secondary)}
+.serm-cat-bar{flex:1;height:8px;background:var(--color-border-tertiary);border-radius:4px;overflow:hidden}
+.serm-cat-fill{height:100%;border-radius:4px;transition:width .8s ease}
+.serm-cat-score{font-size:13px;font-weight:600;min-width:38px;text-align:right}
+.serm-cat-weight{font-size:11px;color:var(--color-text-tertiary);min-width:42px;text-align:right}
+.c-green{background:#22c55e}.c-yellow{background:#eab308}.c-orange{background:#f97316}.c-red{background:#ef4444}
+
+/* ── Tables ──────────────────────────────────────────────────── */
+.serm-table{width:100%;border-collapse:collapse;font-size:13px}
+.serm-table th{text-align:left;font-weight:500;font-size:12px;color:var(--color-text-secondary);padding:0 6px 8px 0;border-bottom:1px solid var(--color-border-tertiary)}
+.serm-table td{padding:8px 6px 8px 0;border-bottom:1px solid var(--color-border-tertiary);vertical-align:top}
+.serm-table tr:last-child td{border-bottom:none}
+
+/* ── Sentiment pills ─────────────────────────────────────────── */
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:11px;font-weight:500}
+.s-pos{background:#dcfce7;color:#15803d}
+.s-neu{background:var(--color-background-tertiary);color:var(--color-text-secondary);border:1px solid var(--color-border-secondary)}
+.s-neg{background:#fee2e2;color:#991b1b}
+.s-mix{background:#fef9c3;color:#854d0e}
+
+/* ── Sentiment heatmap ───────────────────────────────────────── */
+.serm-heatmap{display:grid;grid-template-columns:140px repeat(4,1fr) 60px;gap:1px;font-size:12px;background:var(--color-border-tertiary);border-radius:8px;overflow:hidden}
+.serm-heatmap .hm-head{background:var(--color-background-tertiary);padding:8px 10px;font-weight:500;color:var(--color-text-secondary)}
+.serm-heatmap .hm-cell{padding:8px 10px;text-align:center;background:var(--color-background-primary)}
+.serm-heatmap .hm-label{padding:8px 10px;background:var(--color-background-primary);color:var(--color-text-secondary);text-align:left}
+.hm-pos{background:#f0fdf4;color:#15803d;font-weight:500}
+.hm-neu{background:var(--color-background-primary);color:var(--color-text-secondary)}
+.hm-neg{background:#fef2f2;color:#991b1b;font-weight:500}
+.hm-mix{background:#fefce8;color:#854d0e}
+.hm-score{font-weight:600}
+
+/* ── SERP control stacked bar ────────────────────────────────── */
+.serm-stack-wrap{margin-bottom:16px}
+.serm-stack-bar{display:flex;height:28px;border-radius:6px;overflow:hidden;margin-bottom:8px}
+.serm-stack-bar div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#fff;min-width:1px}
+.sb-owned{background:#3C50E0}
+.sb-earned-pos{background:#22c55e}
+.sb-earned-neu{background:#94a3b8}
+.sb-hostile{background:#ef4444}
+.serm-stack-legend{display:flex;gap:16px;font-size:11px;color:var(--color-text-tertiary);flex-wrap:wrap}
+.serm-stack-legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.sl-owned::before{background:#3C50E0}.sl-ep::before{background:#22c55e}.sl-en::before{background:#94a3b8}.sl-hostile::before{background:#ef4444}
+
+/* ── Platform checklist ──────────────────────────────────────── */
+.serm-plat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.serm-plat-item{display:flex;align-items:center;gap:10px;font-size:13px}
+.st-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0}
+.st-ok{background:#dcfce7;color:#15803d}
+.st-warn{background:#fef9c3;color:#854d0e}
+.st-err{background:#fee2e2;color:#991b1b}
+.st-none{background:var(--color-background-tertiary);color:var(--color-text-tertiary)}
+.plat-name{color:var(--color-text-secondary)}
+.plat-name strong{color:var(--color-text-primary);font-weight:500}
+
+/* ── LLM perception box ──────────────────────────────────────── */
+.serm-llm-bar{height:10px;border-radius:5px;background:var(--color-border-tertiary);margin:8px 0 16px;overflow:hidden}
+.serm-llm-fill{height:100%;border-radius:5px}
+.serm-llm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.serm-llm-col h3{font-size:13px;font-weight:500;margin-bottom:8px;color:var(--color-text-primary)}
+.serm-llm-item{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--color-text-secondary);margin-bottom:6px;line-height:1.5}
+.serm-llm-verdict{margin-top:16px;padding:14px 16px;border-radius:8px;background:var(--color-background-tertiary);font-size:13px;color:var(--color-text-secondary);line-height:1.6;border:1px solid var(--color-border-tertiary)}
+.serm-llm-verdict strong{color:var(--color-text-primary)}
+
+/* ── Recommendation cards ────────────────────────────────────── */
+.serm-reco{border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:16px;margin-bottom:12px;background:var(--color-background-primary)}
+.serm-reco-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.serm-reco-title{font-size:14px;font-weight:500;flex:1;color:var(--color-text-primary)}
+.serm-reco-body{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.serm-reco-meta{font-size:11px;color:var(--color-text-tertiary);margin-top:10px;display:flex;gap:16px}
+.pr-high{background:#fee2e2;color:#991b1b}
+.pr-med{background:#fef9c3;color:#854d0e}
+.pr-low{background:#dcfce7;color:#15803d}
+.tf-pill{background:var(--color-background-tertiary);color:var(--color-text-tertiary);border:1px solid var(--color-border-secondary)}
+
+/* ── Comparison table ────────────────────────────────────────── */
+.serm-compare{border-collapse:collapse;width:100%;font-size:13px}
+.serm-compare th{text-align:left;padding:8px 10px;font-weight:500;font-size:12px;color:var(--color-text-secondary);border-bottom:2px solid var(--color-border-secondary)}
+.serm-compare td{padding:10px;border-bottom:1px solid var(--color-border-tertiary);vertical-align:middle}
+.serm-compare .winner{font-weight:600}
+.delta-up{color:#15803d;font-size:11px}
+.delta-down{color:#991b1b;font-size:11px}
+
+/* ── Timeframe group header ──────────────────────────────────── */
+.serm-tf-group{font-size:12px;font-weight:600;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.6px;margin:20px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--color-border-tertiary)}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.serm-footer{text-align:center;font-size:11px;color:var(--color-text-tertiary);margin-top:20px;padding-top:16px;border-top:1px solid var(--color-border-tertiary)}
+.serm-footer a{color:var(--color-text-tertiary);text-decoration:underline}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media(max-width:520px){
+  .serm-plat-grid,.serm-llm-grid{grid-template-columns:1fr}
+  .serm-hdr{flex-direction:column;gap:16px;text-align:center}
+  .serm-cat-label{width:130px}
+  .serm-heatmap{grid-template-columns:100px repeat(4,1fr) 50px;font-size:11px}
+}
+</style>
+
+<div class="serm-wrap">
+
+<!-- ═══ HEADER ══════════════════════════════════════════════════════════
+  {{BRAND_NAME}}     — the audited brand, e.g. "Binance"
+  {{AUDIT_DATE}}     — formatted date, e.g. "March 23, 2026"
+  {{OVERALL_SCORE}}  — numeric score 0-100
+-->
+<div class="serm-hdr">
+  <div class="serm-hdr-left">
+    <h1>{{BRAND_NAME}} — Reputation Audit</h1>
+    <p>SERM / Sentiment &amp; Reputation Guard &nbsp;·&nbsp; {{AUDIT_DATE}}</p>
+  </div>
+  <div class="serm-score-badge">
+    <span class="num">{{OVERALL_SCORE}}</span>
+    <span class="lbl">/ 100</span>
+  </div>
+</div>
+
+<!-- ═══ SCORE OVERVIEW ═════════════════════════════════════════════════
+  Four .serm-cat rows, one per scoring component.
+  Fill color classes: c-green (80-100), c-yellow (65-79), c-orange (50-64), c-red (0-49)
+  Score text colors: #16a34a, #ca8a04, #ea580c, #dc2626
+
+  {{SCORE_ROWS}} — four .serm-cat divs:
+    <div class="serm-cat">
+      <span class="serm-cat-label">Search Sentiment</span>
+      <div class="serm-cat-bar"><div class="serm-cat-fill c-green" style="width:82%"></div></div>
+      <span class="serm-cat-score" style="color:#16a34a">82</span>
+      <span class="serm-cat-weight">35%</span>
+    </div>
+
+  {{SCORE_SUMMARY}} — overall interpretation sentence, e.g.:
+    <strong style="color:#eab308">68/100 — Good with gaps.</strong> Search sentiment is strong, but low platform presence and LLM perception gaps leave room for improvement.
+-->
+<div class="serm-section">
+  <h2>Score overview</h2>
+  {{SCORE_ROWS}}
+  <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--color-border-tertiary);font-size:13px;color:var(--color-text-secondary)">
+    {{SCORE_SUMMARY}}
+  </div>
+</div>
+
+<!-- ═══ SENTIMENT HEATMAP ══════════════════════════════════════════════
+  Grid showing sentiment distribution per query group.
+  Columns: Group | Positive | Neutral | Negative | Mixed | Score
+
+  {{HEATMAP_ROWS}} — rows for each query group:
+    <div class="hm-label">Base queries</div>
+    <div class="hm-cell hm-pos">12</div>
+    <div class="hm-cell hm-neu">5</div>
+    <div class="hm-cell hm-neg">3</div>
+    <div class="hm-cell hm-mix">1</div>
+    <div class="hm-cell hm-score" style="color:#16a34a">74</div>
+-->
+<div class="serm-section">
+  <h2>Search sentiment breakdown</h2>
+  <div class="serm-heatmap">
+    <div class="hm-head">Query group</div>
+    <div class="hm-head" style="text-align:center">Positive</div>
+    <div class="hm-head" style="text-align:center">Neutral</div>
+    <div class="hm-head" style="text-align:center">Negative</div>
+    <div class="hm-head" style="text-align:center">Mixed</div>
+    <div class="hm-head" style="text-align:center">Score</div>
+    {{HEATMAP_ROWS}}
+  </div>
+  <!-- Optional: top signals summary below the heatmap -->
+  {{SENTIMENT_SIGNALS}}
+</div>
+
+<!-- ═══ SERP CONTROL MAP ═══════════════════════════════════════════════
+  Stacked bar showing control distribution + results table.
+
+  {{SERP_BAR}} — stacked bar segments:
+    <div class="serm-stack-bar">
+      <div class="sb-owned" style="width:30%">30%</div>
+      <div class="sb-earned-pos" style="width:25%">25%</div>
+      <div class="sb-earned-neu" style="width:30%">30%</div>
+      <div class="sb-hostile" style="width:15%">15%</div>
+    </div>
+
+  {{SERP_RESULTS_TABLE}} — top-10 results table for brand query:
+    <table class="serm-table">
+      <tr><th>#</th><th>Source</th><th>Type</th><th>Sentiment</th><th>Control</th></tr>
+      <tr>
+        <td>1</td>
+        <td>brand.com</td>
+        <td>Company owned</td>
+        <td><span class="pill s-pos">Positive</span></td>
+        <td>Owned</td>
+      </tr>
+      ...
+    </table>
+-->
+<div class="serm-section">
+  <h2>SERP control map</h2>
+  <div class="serm-stack-wrap">
+    {{SERP_BAR}}
+    <div class="serm-stack-legend">
+      <span class="sl-owned">Owned</span>
+      <span class="sl-ep">Earned positive</span>
+      <span class="sl-en">Earned neutral</span>
+      <span class="sl-hostile">Hostile</span>
+    </div>
+  </div>
+  {{SERP_RESULTS_TABLE}}
+</div>
+
+<!-- ═══ PLATFORM PRESENCE ══════════════════════════════════════════════
+  Two-column checklist of platform presence.
+
+  {{PLATFORM_ITEMS}} — .serm-plat-item divs:
+    <div class="serm-plat-item">
+      <div class="st-icon st-ok">✓</div>
+      <div class="plat-name"><strong>Trustpilot</strong> — Profile found, 4.2★ rating</div>
+    </div>
+    <div class="serm-plat-item">
+      <div class="st-icon st-err">✗</div>
+      <div class="plat-name"><strong>YouTube</strong> — No brand channel or reviews found</div>
+    </div>
+    <div class="serm-plat-item">
+      <div class="st-icon st-warn">!</div>
+      <div class="plat-name"><strong>Reddit</strong> — Mentions found, mixed sentiment</div>
+    </div>
+    <div class="serm-plat-item">
+      <div class="st-icon st-none">—</div>
+      <div class="plat-name"><strong>Glassdoor</strong> — Not applicable for this brand type</div>
+    </div>
+
+  Status icons:
+    st-ok  (✓) = Found with positive/neutral presence
+    st-warn(!) = Found but with issues (negative reviews, mixed sentiment)
+    st-err (✗) = Not found / missing
+    st-none(—) = Not applicable for this niche
+-->
+<div class="serm-section">
+  <h2>Platform presence</h2>
+  <div class="serm-plat-grid">
+    {{PLATFORM_ITEMS}}
+  </div>
+</div>
+
+<!-- ═══ LLM PERCEPTION ═════════════════════════════════════════════════
+  LLM Sentiment score bar + trust signals / red flags + verdict.
+
+  {{LLM_SCORE}}     — numeric score 0-100
+  {{LLM_BAR_COLOR}} — c-green / c-yellow / c-orange / c-red
+  {{LLM_BAR_WIDTH}} — percentage width, e.g. "72%"
+
+  {{TRUST_SIGNALS}} — list of positive signals:
+    <div class="serm-llm-item">
+      <div class="st-icon st-ok" style="width:16px;height:16px;font-size:9px">✓</div>
+      <span>Wikipedia page exists</span>
+    </div>
+
+  {{RED_FLAGS}} — list of negative signals:
+    <div class="serm-llm-item">
+      <div class="st-icon st-err" style="width:16px;height:16px;font-size:9px">!</div>
+      <span>"Scam" appears in top-3 search results</span>
+    </div>
+
+  {{LLM_VERDICT}} — one-paragraph AI perception summary
+-->
+<div class="serm-section">
+  <h2>LLM perception — how AI sees this brand</h2>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px">
+    <span style="font-size:13px;color:var(--color-text-secondary)">LLM Sentiment Score:</span>
+    <span style="font-size:15px;font-weight:600" class="serm-cat-score">{{LLM_SCORE}}</span>
+  </div>
+  <div class="serm-llm-bar"><div class="serm-llm-fill {{LLM_BAR_COLOR}}" style="width:{{LLM_BAR_WIDTH}}"></div></div>
+  <div class="serm-llm-grid">
+    <div class="serm-llm-col">
+      <h3 style="color:#15803d">Trust signals</h3>
+      {{TRUST_SIGNALS}}
+    </div>
+    <div class="serm-llm-col">
+      <h3 style="color:#991b1b">Red flags</h3>
+      {{RED_FLAGS}}
+    </div>
+  </div>
+  <div class="serm-llm-verdict">
+    {{LLM_VERDICT}}
+  </div>
+</div>
+
+<!-- ═══ COMPARISON (conditional — only in comparison mode) ════════════
+  Omit this entire block if not in comparison mode.
+
+  {{COMPARISON_TABLE}} — side-by-side scores:
+    <table class="serm-compare">
+      <tr>
+        <th>Component</th>
+        <th>Brand A</th>
+        <th>Brand B</th>
+        <th>Delta</th>
+      </tr>
+      <tr>
+        <td>Search Sentiment</td>
+        <td class="winner">82</td>
+        <td>71</td>
+        <td><span class="delta-up">+11</span></td>
+      </tr>
+      ...
+    </table>
+-->
+{{COMPARISON_SECTION}}
+
+<!-- ═══ RECOMMENDATIONS ════════════════════════════════════════════════
+  Grouped by timeframe. Max 10 total.
+
+  {{RECOMMENDATION_CARDS}} — grouped cards:
+    <div class="serm-tf-group">Quick wins — 1–2 weeks</div>
+    <div class="serm-reco">
+      <div class="serm-reco-head">
+        <span class="pill pr-high">High</span>
+        <span class="serm-reco-title">Respond to negative reviews on Trustpilot</span>
+      </div>
+      <div class="serm-reco-body">
+        3 negative reviews without brand response detected. Professional responses shift
+        sentiment from Negative to Mixed and demonstrate active customer care.
+      </div>
+      <div class="serm-reco-meta">
+        <span>Effort: Easy</span>
+        <span>Time: 1–2 days</span>
+        <span>Impact: Search Sentiment +5-10 pts</span>
+      </div>
+    </div>
+
+    <div class="serm-tf-group">Medium-term — 1–3 months</div>
+    ...
+
+    <div class="serm-tf-group">Strategic — 3–6 months</div>
+    ...
+-->
+<div class="serm-section">
+  <h2>Top recommendations</h2>
+  {{RECOMMENDATION_CARDS}}
+</div>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════════ -->
+<div class="serm-footer">
+  Generated by ICODA Reputation Guard &nbsp;·&nbsp; {{AUDIT_DATE}} &nbsp;·&nbsp; <a href="https://icoda.io" target="_blank">icoda.io</a>
+</div>
+
+</div>
