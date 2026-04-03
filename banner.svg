@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320">
+  <defs>
+    <radialGradient id="rocketGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#3C61E2" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3C61E2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="exhaustGrad" cx="50%" cy="10%" r="90%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#FFA040" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#E84E0F" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#3C61E2" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="orbitLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3C61E2" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3C61E2" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#3C61E2" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowFilter" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="portClip">
+      <circle cx="1018" cy="116" r="27"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="320" fill="#0B0D16"/>
+
+  <!-- Left blue accent -->
+  <rect x="0" y="0" width="4" height="320" fill="#3C61E2"/>
+
+  <!-- Stars — right-heavy field -->
+  <g fill="white">
+    <circle cx="1260" cy="22"  r="1.2" opacity="0.7"/>
+    <circle cx="1245" cy="88"  r="0.7" opacity="0.5"/>
+    <circle cx="1255" cy="160" r="1.4" opacity="0.4"/>
+    <circle cx="1248" cy="240" r="0.8" opacity="0.6"/>
+    <circle cx="1270" cy="290" r="1"   opacity="0.5"/>
+    <circle cx="1210" cy="15"  r="0.9" opacity="0.8"/>
+    <circle cx="1195" cy="75"  r="1.3" opacity="0.4"/>
+    <circle cx="1205" cy="185" r="0.7" opacity="0.6"/>
+    <circle cx="1215" cy="270" r="1.1" opacity="0.5"/>
+    <circle cx="1175" cy="40"  r="0.8" opacity="0.7"/>
+    <circle cx="1160" cy="120" r="1.5" opacity="0.4"/>
+    <circle cx="1170" cy="260" r="0.9" opacity="0.6"/>
+    <circle cx="1140" cy="30"  r="1"   opacity="0.8"/>
+    <circle cx="1130" cy="195" r="0.8" opacity="0.5"/>
+    <circle cx="1145" cy="300" r="1.2" opacity="0.4"/>
+    <circle cx="1105" cy="55"  r="1"   opacity="0.7"/>
+    <circle cx="1095" cy="285" r="0.8" opacity="0.5"/>
+    <circle cx="1070" cy="15"  r="1.3" opacity="0.6"/>
+    <circle cx="1060" cy="275" r="1"   opacity="0.4"/>
+    <circle cx="1040" cy="295" r="0.7" opacity="0.7"/>
+    <circle cx="1010" cy="305" r="1.1" opacity="0.5"/>
+    <circle cx="975"  cy="20"  r="0.8" opacity="0.6"/>
+    <circle cx="960"  cy="295" r="1.3" opacity="0.4"/>
+    <circle cx="930"  cy="15"  r="0.9" opacity="0.7"/>
+    <circle cx="920"  cy="285" r="0.8" opacity="0.5"/>
+    <circle cx="895"  cy="35"  r="1"   opacity="0.6"/>
+    <circle cx="875"  cy="280" r="1.2" opacity="0.4"/>
+    <circle cx="850"  cy="20"  r="0.7" opacity="0.7"/>
+    <circle cx="840"  cy="260" r="1"   opacity="0.5"/>
+    <circle cx="820"  cy="55"  r="0.9" opacity="0.6"/>
+    <circle cx="805"  cy="295" r="1.3" opacity="0.4"/>
+    <circle cx="780"  cy="30"  r="0.8" opacity="0.7"/>
+    <circle cx="770"  cy="195" r="1"   opacity="0.5"/>
+    <circle cx="750"  cy="285" r="0.7" opacity="0.6"/>
+    <circle cx="730"  cy="15"  r="1.2" opacity="0.4"/>
+    <circle cx="710"  cy="290" r="0.9" opacity="0.7"/>
+    <circle cx="690"  cy="60"  r="1"   opacity="0.5"/>
+    <circle cx="675"  cy="270" r="0.8" opacity="0.6"/>
+    <circle cx="655"  cy="30"  r="0.7" opacity="0.4"/>
+    <!-- Sparse left -->
+    <circle cx="590"  cy="20"  r="0.8" opacity="0.2"/>
+    <circle cx="540"  cy="280" r="0.7" opacity="0.15"/>
+    <circle cx="480"  cy="35"  r="0.9" opacity="0.2"/>
+    <circle cx="420"  cy="295" r="0.7" opacity="0.15"/>
+    <circle cx="360"  cy="20"  r="0.8" opacity="0.15"/>
+    <circle cx="290"  cy="300" r="0.6" opacity="0.1"/>
+    <circle cx="210"  cy="18"  r="0.7" opacity="0.1"/>
+  </g>
+
+  <!-- Rocket ambient glow -->
+  <ellipse cx="1018" cy="158" rx="195" ry="158" fill="url(#rocketGlow)"/>
+
+  <!-- Orbit arcs -->
+  <ellipse cx="1018" cy="158" rx="150" ry="48" fill="none" stroke="url(#orbitLine)" stroke-width="0.8" transform="rotate(-18 1018 158)"/>
+  <ellipse cx="1018" cy="158" rx="175" ry="32" fill="none" stroke="url(#orbitLine)" stroke-width="0.6" transform="rotate(12 1018 158)"/>
+
+  <!-- Engine exhaust -->
+  <ellipse cx="1018" cy="285" rx="16" ry="38" fill="url(#exhaustGrad)"/>
+  <ellipse cx="1018" cy="288" rx="8"  ry="22" fill="white" opacity="0.08"/>
+
+  <!-- ICODA Rocket (secondary brand icon) -->
+  <g transform="translate(898, 36) scale(0.234)" filter="url(#glowFilter)">
+    <g transform="translate(0,1024) scale(0.1,-0.1)" fill="#3C61E2">
+      <path d="M5035 9361 c-46 -21 -70 -46 -186 -191 -268 -335 -474 -660 -684 -1085 -361 -727 -559 -1394 -654 -2205 -48 -408 -53 -500 -61 -1270 -8 -830 -5 -790 -79 -901 -20 -29 -93 -104 -163 -166 -150 -132 -220 -207 -294 -319 -105 -157 -155 -296 -179 -494 -22 -174 -21 -1425 0 -1497 31 -104 147 -158 255 -120 19 7 128 81 241 164 408 300 637 437 799 478 147 37 293 27 413 -28 106 -48 211 -173 247 -292 7 -22 15 -115 19 -207 7 -181 11 -195 75 -242 26 -20 40 -21 336 -21 296 0 310 1 336 21 65 48 68 60 75 247 5 139 10 182 27 224 68 177 206 285 397 314 260 38 496 -78 1168 -578 125 -93 183 -110 270 -79 50 18 76 42 98 91 17 38 19 83 19 760 0 441 -4 753 -10 804 -20 159 -86 326 -185 471 -83 122 -145 190 -268 293 -121 101 -173 161 -214 245 l-28 57 -7 675 c-7 697 -13 861 -47 1185 -35 335 -79 608 -147 925 -192 893 -681 1908 -1247 2588 -89 108 -115 133 -156 151 -61 26 -113 26 -166 2z m261 -2451 c299 -75 536 -328 590 -630 62 -349 -99 -666 -423 -829 -192 -96 -433 -102 -645 -17 -187 76 -346 237 -422 429 -42 105 -61 261 -47 373 21 160 63 265 157 391 178 239 503 355 790 283z"/>
+    </g>
+  </g>
+
+  <!-- Porthole frame -->
+  <circle cx="1018" cy="116" r="31" fill="#090B14" stroke="#4572FF" stroke-width="2.5"/>
+
+  <!-- Claude mascot -->
+  <g clip-path="url(#portClip)">
+    <!-- Torso -->
+    <ellipse cx="1018" cy="135" rx="18" ry="14" fill="#C96328"/>
+    <!-- Arms -->
+    <ellipse cx="1003" cy="130" rx="7" ry="5" fill="#D4733A"/>
+    <ellipse cx="1033" cy="130" rx="7" ry="5" fill="#D4733A"/>
+    <!-- Head -->
+    <circle cx="1018" cy="108" r="18" fill="#E8894E"/>
+    <!-- Ear bumps -->
+    <circle cx="1003" cy="107" r="6.5" fill="#D4733A"/>
+    <circle cx="1033" cy="107" r="6.5" fill="#D4733A"/>
+    <!-- Eyes -->
+    <circle cx="1012" cy="105" r="4.2" fill="white"/>
+    <circle cx="1024" cy="105" r="4.2" fill="white"/>
+    <circle cx="1012.5" cy="105.5" r="2.3" fill="#1C1C2E"/>
+    <circle cx="1024.5" cy="105.5" r="2.3" fill="#1C1C2E"/>
+    <circle cx="1013"   cy="104.5" r="0.9" fill="white"/>
+    <circle cx="1025"   cy="104.5" r="0.9" fill="white"/>
+    <!-- Smile -->
+    <path d="M 1012 112 Q 1018 117 1024 112" stroke="#8B4010" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Waving arm -->
+    <path d="M 1033 124 Q 1042 116 1038 108" stroke="#E8894E" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <circle cx="1038" cy="107" r="4.5" fill="#E8894E"/>
+  </g>
+  <!-- Porthole glare -->
+  <path d="M 997 100 Q 1001 96 1009 97" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.2"/>
+
+  <!-- ICODA wordmark (white) -->
+  <g transform="translate(80, 82) scale(0.22)" fill="white">
+    <path d="M590.166 58.9735V0H622.02V214.801H590.596C590.166 210.066 590.166 205.331 589.735 199.305C579.599 207.621 567.708 213.53 554.958 216.587C542.209 219.644 528.931 219.769 516.126 216.954C497.668 213.235 481.166 202.998 469.636 188.113C442.947 154.536 442.947 102.02 470.497 69.3046C498.907 35.7284 540.232 31.8543 590.166 58.9735ZM590.596 129.57C590.596 96.4238 566.49 71.8874 535.066 72.3179C504.934 72.7484 482.55 97.2848 482.55 130C482.55 162.715 505.364 188.113 535.927 188.113C567.351 187.252 591.027 162.285 590.596 129.57Z"/>
+    <path d="M796.789 58.9736L797.65 44.3378H829.504V215.232H798.08L796.789 199.305C773.544 216.954 748.146 223.411 720.166 216.954C701.217 212.541 684.442 201.561 672.815 185.96C647.848 153.245 649.14 101.159 676.259 70.1657C705.53 35.7286 746.855 31.4239 796.789 58.9736ZM688.312 130.431C688.312 163.576 711.987 187.682 742.55 187.252C773.113 186.821 797.219 161.424 796.789 128.278C796.789 95.9935 772.683 71.0265 741.689 71.457C710.696 71.8875 688.312 96.8544 688.312 130.431Z"/>
+    <path d="M247.517 129.57C247.517 77.4835 286.259 39.6027 338.345 39.6027C349.916 39.5911 361.376 41.869 372.063 46.3049C382.751 50.7409 392.455 57.2473 400.617 65.4496C408.78 73.6518 415.239 83.3879 419.622 94.0969C424.006 104.806 426.228 116.276 426.159 127.848V129.139C426.559 152.829 417.532 175.707 401.063 192.74C384.595 209.774 362.034 219.567 338.345 219.967C314.655 220.367 291.778 211.339 274.744 194.871C257.71 178.402 247.917 155.842 247.517 132.152V129.57ZM393.014 130C393.014 96.4239 369.338 71.8875 337.054 71.8875C329.704 71.7735 322.405 73.1084 315.572 75.8159C308.739 78.5234 302.506 82.5505 297.23 87.6671C291.953 92.7837 287.736 98.8897 284.82 105.636C281.903 112.383 280.345 119.638 280.232 126.987V129.139C280.232 161.854 304.769 187.682 336.623 187.252C368.908 187.682 393.014 163.146 393.014 130Z"/>
+    <path d="M229.007 102.881L199.735 113.642C192.848 94.702 181.656 79.6358 162.285 75.3312C150.239 72.4599 137.67 72.6078 125.695 75.7616C100.728 82.649 87.3841 105.894 88.6755 135.596C89.1154 147.531 93.4917 158.986 101.122 168.174C108.753 177.362 119.209 183.767 130.861 186.391C159.702 193.709 180.795 181.656 201.887 145.497L225.132 155.828C226.424 156.689 228.146 157.55 229.437 158.411C219.536 197.152 176.921 223.841 133.013 218.676C111.403 216.511 91.4095 206.258 77.0401 189.972C62.6707 173.687 54.9873 152.573 55.5298 130.861C55.0197 108.797 62.7718 87.3378 77.2657 70.6937C91.7595 54.0497 111.949 43.4216 133.874 40.8941C154.562 37.8497 175.65 42.4699 193.17 53.8856C210.69 65.3014 223.435 82.7258 229.007 102.881Z"/>
+    <path d="M29.702 213.94H0V46.49H29.702V213.94Z"/>
+    <path d="M882.02 216.954V190.265H910V216.954H882.02Z" fill="#3946F4"/>
+  </g>
+
+  <!-- Skills -->
+  <text x="83" y="193" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="52" font-weight="700" fill="#3C61E2" letter-spacing="-0.5">Skills</text>
+
+  <!-- Tagline -->
+  <text x="84" y="227" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" fill="#8A9AB5" letter-spacing="0.3">Claude skills for AI marketing teams</text>
+
+  <!-- Divider -->
+  <line x1="84" y1="251" x2="490" y2="251" stroke="#2D344D" stroke-width="1" opacity="0.5"/>
+
+  <!-- Info -->
+  <text x="84" y="276" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12.5" fill="#4A5568">Built by ICODA · 17+ years · 650+ clients · MIT License</text>
+</svg>

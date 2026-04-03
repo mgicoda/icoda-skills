@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./banner.png" alt="ICODA Skills — Claude Skills for AI Marketing Teams" width="100%"/>
+</p>
+
 # ICODA Skills — Claude Skills for AI Marketing Teams
 
 <div align="center">
