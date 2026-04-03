@@ -41,7 +41,7 @@ Most AI tools give you a chat interface. We give you **specialized audit agents*
 | Skill | What it does | Output | Install |
 |-------|-------------|--------|---------|
 | [**aeo-audit**](#aeo-audit) | Audits any website for AI search readiness — AI bot access, structured data, content structure, technical signals | Score 0–100 · ROI-ranked fixes · HTML/PDF report | [↓ Download .skill](./aeo-audit/aeo-audit.skill) |
-| [**serm-guard**](#serm-guard) | Full brand reputation audit across search & AI — auto-detects niche, 17–21 targeted searches, brand vs brand comparison | Score 0–100 · LLM perception verdict · Action roadmap | [↓ SKILL.md](./serm-guard/SKILL.md) |
+| [**serm-guard**](#serm-guard) | Full brand reputation audit across search & AI — auto-detects niche, 17–21 targeted searches, brand vs brand comparison | Score 0–100 · LLM perception verdict · Action roadmap | [↓ Download .skill](./serm-guard/serm-guard.skill) |
 
 ---
 
